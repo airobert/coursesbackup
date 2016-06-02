@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="pragma" content="no-cache">
+<title>Computational Complexity</title>
+</head>
+<body>
+<div class="container">
+<h1>Computational Complexity<br><small>University of Amsterdam – September 2015</small></h1>
+
+<p>Lecturer: <a href="http://homepages.cwi.nl/~buhrman/">Harry Buhrman</a><br>
+Teaching assistant: <a href="http://homepages.cwi.nl/~jzuiddam/">Jeroen Zuiddam</a><br>
+<a href="http://studiegids.uva.nl/xmlpages/page/2015-2016/zoek-vak/vak/20246">Course catalogue</a><br>
+<a href="https://datanose.nl/#course%5B44379%5D">Datanose</a>
+</p>
+
+
+<h2>Lectures</h2><p>
+Tuesday 9:00-11:00<br>
+Thursday 11:00-13:00<br>
+</p>
+
+<h2>Exercise session</h2>
+<p>
+Thursday 10:00-11:00
+</p>
+For location see <a href="https://datanose.nl/#course%5B44379%5D">Datanose</a>. The first lecture is on Tuesday, September 1 at 9:00 am in room SP A1.04.
+	
+<h2>Textbook</h2>
+<a href="http://www.cs.princeton.edu/theory/complexity/">Computational Complexity: A Modern Approach</a>, by Sanjeev Arora and Boaz Barak.
+
+
+
+
+<h2>Homework and exam</h2>
+<p>
+Exercises will be handed out on Thursday and have to be handed in on Thursday one week later. You are allowed to cooperate, but everyone has to write down their solution in their own words. When computing the average grade for the exercises, the lowest score will be dropped.
+</p>
+<p>
+Besides the exercises there will be a final exam. The exam will be <strong>open book</strong>, which means you are allowed to bring the book and any notes you made – digital equipment is not allowed.
+The final grade for the course will be the average between the grade for the exercises and the final exam.
+</p>
+<p>
+If you want to take the resit exam, please send an email to Jeroen Zuiddam.
+</p>
+
+<h2>Schedule</h2>
+
+<table class="table">
+<tr>
+<th>Time</th><th>Location</th><th>Topic</th>
+</tr>
+<tr>
+	<td>1&nbsp;Sep.&nbsp; 9-11</td>
+  <td>SP904 A1.04</td>
+  <td>Introduction to computational complexity</br><a href="ComplexityUvA2015.pdf">Slides</a></br><a href="01-homework.pdf">Homework 1</a>, due 8 Sep. 9:00 am. Handing in via email is encouraged.</td>
+</tr>
+<tr class="info">
+  <td>3&nbsp;Sep.&nbsp; 10-11</td>
+  <td>SP904 G3.02</td>
+  <td>Exercise session on asymptotic notations.</br><a href="01-exercisesession.pdf">Exercises</a>, <a href="01-exercisesessionsolutions.pdf">solutions</a></br>Book: 0.3</td>
+</tr>
+<tr>
+	<td>3&nbsp;Sep.&nbsp; 11-13</td>
+  <td>SP904 C1.112</td>
+  <td>P, NP, reductions, co-NP</br>Book: 1.1–1.4, 1.6, 1.7, 2.1, 2.2</td>
+</tr>
+<tr>
+  <td>8&nbsp;Sep.&nbsp; 9-11</td>
+  <td>SP904 A1.04</td>
+  <td>Cook-Levin Thm: 3-SAT is NP-complete, Decision vs Search</br>Book: 2.3, 2.5</br><a href="02-homework.pdf">Homework 2</a> (updated 15 Sep.), due Thursday 17 Sep. 10:00 am.</td>
+</tr>
+<tr class="info">
+  <td>10&nbsp;Sep.&nbsp; 10-11</td>
+  <td><a href="Amsterdam_Science_Park.pdf">SP123 CWI</a> L016</td>
+  <td>Exercise session on homework.</td>
+</tr>
+<tr>
+  <td>10&nbsp;Sep.&nbsp; 11-13</td>
+  <td><a href="Amsterdam_Science_Park.pdf">SP123 CWI</a> L016</td>
+  <td>Diagonalization, time hierarchies</br>Book: 3.1, 3.2</td>
+</tr>
+<tr>
+	<td>15&nbsp;Sep.&nbsp; 9-11</td>
+  <td>SP904 A1.04</td>
+  <td>Relativization</br>Book: 3.4</td>
+</tr>
+<tr class="info">
+  <td>17&nbsp;Sep.&nbsp; 10-11</td>
+  <td>SP904 G2.02</td>
+  <td>Exercise session on homework 2.</br><a href="03-homework.pdf">Homework 3</a> (updated 22 Sep.), due Thursday 24 Sep. 10:00 am.</td>
+</tr>
+<tr>
+	<td>17&nbsp;Sep.&nbsp; 11-13</td>
+  <td>SP904 B0.201</td>
+  <td>Space complexity, PSPACE, L, NL</br>Book: Chapter 4</td>
+</tr>
+<tr>
+	<td>22&nbsp;Sep.&nbsp; 9-11</td>
+  <td>SP904 G3.02</td>
+  <td>Immerman-Szelepcs&eacute;nyi theorem, the polynomial hierarchy</br>Book: 4.3.2, Chapter 5</td>
+</tr>
+<tr class="info">
+  <td>24&nbsp;Sep.&nbsp; 10-11</td>
+  <td>SP904 G0.05</td>
+  <td>Exercise session on homework 3.</br><a href="04-homework.pdf">Homework 4</a>, due Thursday 1 Oct. 11:00 am.</td>
+</tr>
+<tr>
+	<td>24&nbsp;Sep.&nbsp; 11-13</td>
+  <td>SP904 G5.29</td>
+  <td>Circuit complexity, the Karp-Lipton Theorem</br>Book: Chapter 6</td>
+</tr>
+<tr>
+	<td>29&nbsp;Sep.&nbsp; 9-11</td>
+  <td>SP904 A1.04</td>
+  <td>Parity not in AC^0</br>Book: 14.2</td>
+</tr>
+<tr>
+	<td>1&nbsp;Oct.&nbsp; 9-11</td>
+  <td><a href="Amsterdam_Science_Park.pdf">SP123 CWI</a> L016</td>
+  <td>Probabilistic algorithms</br>Book: 7.1–7.3</td>
+</tr>
+<tr class="info">
+  <td>1&nbsp;Oct.&nbsp; 10-11</td>
+  <td><a href="Amsterdam_Science_Park.pdf">SP123 CWI</a> L016</td>
+  <td>Exercise session on homework 4.</br><a href="05-homework.pdf">Homework 5</a>, due Thursday 8 Oct. 10:00 am.</td>
+</tr>
+<tr>
+	<td>6&nbsp;Oct.&nbsp; 9-11</td>
+  <td>SP904 A1.04</td>
+  <td>BPP, circuits and polynomial hierarchy</br>Book: 7.3–7.5</td>
+</tr>
+<tr class="info">
+  <td>8&nbsp;Oct.&nbsp; 10-11</td>
+  <td>SP904 G3.02</td>
+  <td>Exercise session on homework 5.</br><a href="06-homework.pdf">Homework 6</a>, due Thursday 15 Oct. 10:00 am.</td>
+</tr>
+<tr>
+  <td>8&nbsp;Oct.&nbsp; 11-13</td>
+  <td>SP904 G4.15</td>
+  <td>Interactive proofs, Graph-Isomorphism problem</br>Book: 8.1–8.2</td>
+</tr>
+<tr>
+	<td>13&nbsp;Oct.&nbsp; 9-11</td>
+  <td>SP904 A1.04</td>
+  <td>IP = PSPACE</br>Book: 8.3</td>
+</tr>
+<tr class="info">
+  <td>15&nbsp;Oct.&nbsp; 10-11</td>
+  <td><a href="Amsterdam_Science_Park.pdf">SP123 CWI</a> L016</td>
+  <td>Exercise session on homework 6.</td>
+</tr>
+<tr>
+  <td>15&nbsp;Oct.&nbsp; 11-13</td>
+  <td></td>
+  <td>No lecture</td>
+</tr>
+<tr class="info">
+  <td>19&nbsp;Oct.&nbsp; 11-13</td>
+  <td><a href="Amsterdam_Science_Park.pdf">SP123 CWI</a> L016</td>
+  <td>Question session</br>Homework 6 will have been graded.</td>
+</tr>
+<tr class="success">
+  <td>21&nbsp;Oct.&nbsp; 9-12</td>
+  <td><a href="fnwi.pdf">SP912 H0.08</a></td>
+  <td>Exam</br>You are allowed to bring books and notes, but no electronic devices.</br><a href="oldexam.pdf">Old exam</a></td>
+</tr>
+<tr>
+  <td></td>
+</tr>
+<tr class="success">
+  <td>5&nbsp;Jan.&nbsp; 18-21</td>
+  <td>SP904 D1.160</td>
+  <td>Resit exam</br>Please register by sending an email to Jeroen Zuiddam.</td>
+</tr>
+
+</table>
+
+<p>See also the <a href="2014/index.html">website of the 2013/2014 course</a>.</p>
+
+</div>
+</body>
+</html>

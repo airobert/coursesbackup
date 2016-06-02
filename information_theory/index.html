@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <link rel="stylesheet" href="../../static/courses.css" type="text/css">
+    <link rel="shortcut icon" href="../../../static/img/favicon.ico" type="image/x-icon">
+
+    <title>Information Theory - UvA course - Fall 2016</title>
+</head>
+
+<body>
+<div id="content">
+<h1>Information Theory 2016</h1>
+
+<div id="topbox">
+    <div class="subbox">
+        <a href="http://www.uva.nl">University
+            of Amsterdam course</a>, Nov/Dec 2016<br>
+        <a href="http://www.illc.uva.nl/MScLogic/">Master of Logic</a>
+
+        <div id="lecturer">
+            Lecturer: <a href="http://homepages.cwi.nl/%7Eschaffne">Christian
+                Schaffner</a> (<a href="http://www.uva.nl/">UvA</a> / <a
+                href="http://homepages.cwi.nl/%7Eschaffne/contact.php">email</a>)
+<br>
+            Teaching assistant: <a       href="#">
+                Yfke Dulek</a> (<a href="mailto:yfkedulek@gmail.com">email</a>)
+        </div>
+    </div>
+
+    <div class="subbox">
+    <h4>News:</h4>
+    	6 April 2016: first update of page
+    </div>
+
+    <div class="subbox">
+        See <a href="../2013/">here for the Spring 2014</a> and <a href="../2014">Fall 2014</a> and <a href="../2015">Fall 2015</a> editions of
+        this course.
+    </div>
+
+</div>
+
+
+<h2 id="start_of_text">Content of the course</h2>
+<a target="_blank" href="http://en.wikipedia.org/wiki/Information_theory">Information theory</a> was developed by
+<a href="https://en.wikipedia.org/wiki/Claude_Shannon" target="_blank">Claude
+E. Shannon</a> in the 1950s to investigate the fundamental limits on signal-processing operations such as compressing data
+and on reliably storing and communicating data. These tasks have turned out to be fundamental for all of computer
+science.
+<p>
+	In this course, we quickly review the basics of probability theory and introduce concepts such as (conditional) Shannon entropy, mutual information and entropy diagrams. Then, we prove Shannon's theorems about data compression and channel coding. An interesting connection with graph theory is made in the setting of zero-error information theory. We also cover some aspects of information-theoretic security such as perfectly secure encryption.</p>
+
+<h2 id="requirements">Requirements</h2> 
+Students are required to know the (theory) contents of the course <a  target="_blank" href="http://basicprobability.github.io/">Basic Probability: Theory</a> in the Master of Logic (no programming will be required for this course). Study the <a target="_blank" href="https://github.com/BasicProbability/LectureNotes/blob/master/fullscript/BasicProbabilityAndStatistics.pdf">script</a> and the <a  target="_blank" href="https://github.com/BasicProbability/BasicProbability.github.io/tree/master/Homework/Theory">theory homework exercises</a>.
+
+
+<h2>Intended Learning Outcomes</h2>
+
+At the end of the
+course, you will be able to solve problems of the following kinds:
+
+<P>(Probability)</P>
+<UL>
+	<LI>compute the
+	probability of an event using the most common discrete probability
+	distributions (Bernoulli, binomial, and geometric);</P>
+	<LI>compute
+	inverse probabilities using Bayes' rule;</P>
+	<LI>compute the
+	means and variances of commonly used probability distributions;</P>
+	<LI>compute the
+	means and variances of sums or products of a random variables with
+	known distributions;</P>
+	<LI>bound the
+	probability of an extreme event using inequalities such as the
+	Markov bound, Chebyshev's inequality, or Hoeffding's inequality.</P>
+</UL>
+
+<P>(Entropy and related concepts)</P>
+<UL>
+	<LI>compute the
+	entropy of a random variable;</P>
+	<LI>compute the
+	mutual information between two random variables;</P>
+	<LI>use entropy
+	diagrams to reason about the relative size of the entropies,
+	conditional entropies, and mutual information of two or three random
+	variables;</P>
+	<LI>use Jensen's
+	inequality to bound the mean of a random variable defined in terms
+	of convex or concave function of another random variable.</P>
+</UL>
+
+<P>(Data compression)</P>
+
+<UL>
+	<LI>construct a
+	<I>d</I>-ary Huffman code for a random variable.</P>
+	<LI>use Kraft's
+	inequality to check whether a prefix-free code can be constructed to
+	fit certain codeword lengths;</P>
+	<LI>bound the
+	possible rate of lossless compression of output from a given source
+	using Shannon's source coding theorem;</P>
+	<LI>define a
+	typical set and reason about its size, probability, and elements;</P>
+	<LI>compute the
+	Shannon-Fano-Elias codeword for a sample from a stochastic process.</P>
+	<li><b>compute the entropy rate of a Markov process.</b></li>
+</UL>
+
+<P>(Noisy-channel coding)</P>
+<UL>
+	<LI>construct a
+	probability model of a communication channel given a verbal
+	description;</P>
+	<LI>compute the
+	channel capacity of a channel;</P>
+	<LI>use Shannon's
+	channel coding theorem to bound the achievable rate of reliable
+	communication over a channel;</P>
+	<LI>use Bayes'
+	rule to decode corrupted messages sent using an error-correcting
+	code;</P>
+	<LI>evaluate the
+	rate and reliability of such codes;</P>
+	<LI>define the
+	jointly typical sets of a source and channel, and use such sets to
+	decode outputs from the channel;</P>
+	<LI>draw the
+	confusability graph of a given channel, and describe the channel
+	depicted by a given confusability graph;</P>
+	<LI>compute the
+	independence number and the zero-error capacity of a confusability
+	graph;</P>
+</UL>
+
+<h2>Course website</h2>
+Updated information about the course can be found on <a
+    href="http://homepages.cwi.nl/~schaffne/courses/inftheory/2016/">http://homepages.cwi.nl/~schaffne/courses/inftheory/2016/</a>
+
+<h2>Study Material</h2>
+The material will be presented in black-boards lectures. The following are good references:
+<ul>
+    <li>[CF] Ronald Cramer, Serge Fehr: <a href="notes/CramerFehr.pdf">The
+            Mathematical Theory of Information, and Applications</a>, lecture notes, Version 2.0
+    </li>
+    <li>[CT] Thomas M. Cover, Joy A. Thomas. <a target="blank"
+                                                href="http://onlinelibrary.wiley.com/book/10.1002/0471200611">Elements
+            of information theory</a>, 2nd Edition. New York: Wiley-Interscience, 2006. ISBN 0-471-24195-4.
+    <li>[MacKay] David J. C. MacKay. <a target="blank" href="http://www.inference.phy.cam.ac.uk/mackay/itila/book.html">Information
+            Theory, Inference, and Learning Algorithms</a>. Cambridge: Cambridge University Press, 2003. ISBN
+        0-521-64298-1
+</ul>
+
+
+<h2>Lectures and Exercise sessions</h2>
+please check <a target="_blank" href="https://datanose.nl/">Datanose</a> for the
+definite times and locations.<br>
+
+<!-- <a name="location"></a>
+<b>Lectures (Hoorcollege)</b><br>
+Times: Tuesdays, 11-13, location: Science Park G0.05<br>
+Thursdays, 11-13, location: check <a
+href="https://datanose.nl/#course[22718]">Datanose</a><br>
+starting 4 February 2013<br>
+<br>
+
+<b>Exercises (Werkcollege)</b><br>
+Time: Fridays 9-11, location: check <a
+href="https://datanose.nl/#course[22718]">Datanose</a><br>
+first exercises: 7 February 2013<br>
+<br> -->
+
+
+<h2>Homework, exam, and grading</h2>
+
+This is a 6 ECTS course, which comes to roughly 20 hours of work per
+week.
+
+<p> There will be homework exercises every week
+    to be handed in one week later. The answers should be in English. Feel free to use LaTeX, here is a <a
+        href="HW-template.tex">template</a> to get you started, but readable handwritten solutions
+    are fine, too. Cooperation while solving the exercises is allowed and
+    encouraged, but everyone has to hand in their own solution set in
+    their own words. <a name="exercises"></a>
+
+<p><a name="exam"></a>
+
+    There will be a final written exam.
+<!--    on Friday, March 28, 2014, from 9:00-12:00 in SP, G2.02</b>-->
+    The exam is open-book, meaning that you can bring the study material [CF], [CT],
+    [MacKay] mentioned above as well as any notes you made, but no electronic devices are allowed.
+		Here is the written <a href="exam2014.pdf">exam from Spring 2014</a> and <a href="exam2015.pdf">Fall 2015</a>.
+
+<!--    <b>The final exam will consist of student presentations-->
+<!--    about slightly more advanced topics connected to the course. The detailed-->
+<!--     procedure and list of topics can be found <a href="exam.php">here</a>.</b>-->
+
+<p> The final grade for the course consists by 1/2 of the average homework grade (ignoring the worst grade) and 1/2 of
+    the grade obtained at the final exam.
+
+<h2 id="schedule">Course schedule Fall 2016</h2>
+    will be similar to <a href="../2015">last year</a>
+
+
+<a name="lifeafter"></a>
+
+<h2>Life after "Information Theory"</h2>
+If you got hooked on the world of entropies, you have several
+options after the course to pursue the topics of information theory and cryptography:
+<ul>
+    <li>Talk to Christian about the possibilities of doing a semester project
+        or master project in information theory or cryptography. He can also hook you up with other
+        people at the <a href="http://www.illc.uva.nl/People/">ILLC</a>, at <a href="http://www.cwi.nl">CWI</a> or in the rest of the world, working on different
+        aspects of information theory.
+    </li>
+    <li>Follow <a href="http://homepages.cwi.nl/~rdewolf">Ronald de Wolf</a>'s course about <a
+            href="http://homepages.cwi.nl/~rdewolf">combinatorics with computer science applications</a> at the
+        university of Amsterdam, starting Spring 2016.
+    </li>
+    <li>Follow <a href="https://staff.fnwi.uva.nl/l.torenvliet/">Leen Torenvliet</a>'s course about <a
+            href="http://studiegids.uva.nl/xmlpages/page/2015-2016-en/search-course/course/15297">Kolmogorov complexity</a> at the
+        university of Amsterdam, starting Spring 2016.
+    </li>
+<!--    <li>Follow <a href="http://www.mastermath.nl/courses/Spring_2015/Cryptology/">this mastermath course</a>-->
+<!--        about crypology by <a href="http://www.marc-stevens.nl">Marc Stevens</a> and-->
+<!--        <a href="http://www.hyperelliptic.org/tanja/">Tanja Lange</a>, starting in Spring 2015.</li>-->
+<!--    <li>Follow <a href="https://www.cwi.nl/people/552">Harry Buhrmans</a>'s course about <a-->
+<!--            href="https://datanose.nl/#course[14942]">computational complexity</a> at the-->
+<!--        university of Amsterdam, starting Fall 2015.-->
+<!--    </li>-->
+    <li>Follow various online classes such as Raymond W. Yeung's <a href="https://class.coursera.org/informationtheory-002">
+            Information Theory</a> course,
+        Dan Boneh's
+        <a href="https://www.coursera.org/course/crypto">
+            crypto</a>, <a href="https://www.coursera.org/course/crypto2">crypto II</a>,
+        <a href="https://www.coursera.org/course/cryptography">Jon Katz's crypto class</a> or <a
+            href="https://www.coursera.org/course/qcomp">Umesh Vazirani's course
+            about quantum computing</a>.
+    </li>
+</ul>
+
+
+<div id="footer">
+    <p>Last update: 2015-10-28 12:13:36 +0100 &nbsp; &nbsp;
+        <span class="disclaimer"><a href="http://www.cwi.nl/disclaimer.html">CWI DISCLAIMER</a></span></p>
+
+
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <!-- Start of StatCounter Code -->
+    <script type="text/javascript" language="javascript">
+        <!--
+        var sc_project = 1639480;
+        var sc_invisible = 1;
+        var sc_partition = 15;
+        var sc_security = "19c07acf";
+        //-->
+    </script>
+
+    <script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><a href="http://statcounter.com/" target="_blank"><img
+                src="http://c16.statcounter.com/counter.php?sc_project=1639480&amp;java=0&amp;security=19c07acf&amp;invisible=1"
+                alt="website page counter" border="0"></a></noscript>
+    <!-- End of StatCounter Code -->
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-23222525-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+</div>
+
+</body>
+</html>

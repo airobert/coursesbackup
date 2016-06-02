@@ -1,0 +1,757 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <link rel="stylesheet" href="../../static/courses.css" type="text/css">
+    <link rel="shortcut icon" href="../../../static/img/favicon.ico" type="image/x-icon">
+
+    <title>Information Theory - UvA course - Fall 2014</title>
+</head>
+
+<body>
+<div id="content">
+<h1>Information Theory 2015</h1>
+
+<div id="topbox">
+    <div class="subbox">
+        <a href="http://www.uva.nl">University
+            of Amsterdam course</a>, Nov/Dec 2015<br>
+        <a href="http://www.illc.uva.nl/MScLogic/">Master of Logic</a>
+
+        <div id="lecturer">
+            Lecturer: <a href="http://homepages.cwi.nl/%7Eschaffne">Christian
+                Schaffner</a> (<a href="http://www.uva.nl/">UvA</a> / <a
+                href="http://homepages.cwi.nl/%7Eschaffne/contact.php">email</a>)
+<br>
+            Teaching assistant: <br>
+<a       href="http://www.uva.nl/over-de-uva/organisatie/medewerkers/content/m/a/m.w.madsen/m.w.madsen.html">
+                Mathias Madsen</a> (<a href="mailto:mathias.winther@gmail.com">email</a>)
+        </div>
+    </div>
+
+    <div class="subbox">
+    <h4>News:</h4>
+		9 Dec 2015: added <a href="exam2014.pdf" target="_blank">2014 exam</a><br>
+		24 Nov 2015: updated <a href="IT-2015-Ex4.pdf">Exercise #4</a><br>
+        24 Oct 2015: updated <a href="#schedule">course outline</a><br>
+25 September 2015: updated <a href="#requirements">required</a> previous knowledge<br>
+    5 March 2015: created new page<br>
+<!--    30 Nov 2014: Philip added some more topics to the <a href="exam.php">list of topics</a> for the final presentations.<br />-->
+<!--    26 Nov 2014: The final <a href="#exam">exam</a> will consist of student presentations. Check the <a href="exam.php">list of topics</a> here.<br />-->
+    27 Oct 2014: <a target="_blank" href="https://medium.com/@cshirky/why-i-just-asked-my-students-to-put-their-laptops-away-7f5f7c50f368">Good reasons</a> to put away your mobile phone during class<br />
+    </div>
+
+    <div class="subbox">
+        See <a href="../2013/">here for the Spring 2014</a> and <a href="../2014">Fall 2014</a> editions of
+        this course.
+    </div>
+
+</div>
+
+
+<h2 id="start_of_text">Content of the course</h2>
+<a target="_blank" href="http://en.wikipedia.org/wiki/Information_theory">Information theory</a> was developed by
+<a href="https://en.wikipedia.org/wiki/Claude_Shannon" target="_blank">Claude
+E. Shannon</a> in the 1950s to investigate the fundamental limits on signal-processing operations such as compressing data
+and on reliably storing and communicating data. These tasks have turned out to be fundamental for all of computer
+science.
+<p>
+    In this course, we quickly review the basics of (discrete) probability theory and introduce concepts such as (conditional)
+    Shannon entropy, mutual information and Renyi entropy. Then, we prove Shannon's theorems about data compression and
+    channel coding. In the course, we also cover some aspects of information-theoretic security and show applications
+    of information theory to the area of machine learning.
+</p>
+
+<h2 id="requirements">Requirements</h2> 
+Students are required to know the (theory) contents of the course <a  target="_blank" href="http://basicprobability.github.io/">Basic Probability, Computing and Statistics</a> in the Master of Logic (no programming will be required for this course). Study the <a target="_blank" href="https://github.com/BasicProbability/LectureNotes/blob/master/fullscript/BasicProbabilityAndStatistics.pdf">script</a> and the <a  target="_blank" href="https://github.com/BasicProbability/BasicProbability.github.io/tree/master/Homework/Theory">theory homework exercises</a>.
+
+
+<h2>Intended Learning Outcomes</h2>
+
+At the end of the
+course, you will be able to solve problems of the following kinds:
+
+<P>(Probability)</P>
+<UL>
+	<LI>compute the
+	probability of an event using the most common discrete probability
+	distributions (Bernoulli, binomial, and geometric);</P>
+	<LI>compute
+	inverse probabilities using Bayes' rule;</P>
+	<LI>compute the
+	means and variances of commonly used probability distributions;</P>
+	<LI>compute the
+	means and variances of sums or products of a random variables with
+	known distributions;</P>
+	<LI>bound the
+	probability of an extreme event using inequalities such as the
+	Markov bound, Chebyshev's inequality, or Hoeffding's inequality.</P>
+</UL>
+
+<P>(Entropy and related concepts)</P>
+<UL>
+	<LI>compute the
+	entropy of a random variable;</P>
+	<LI>compute the
+	mutual information between two random variables;</P>
+	<LI>use entropy
+	diagrams to reason about the relative size of the entropies,
+	conditional entropies, and mutual information of two or three random
+	variables;</P>
+	<LI>use Jensen's
+	inequality to bound the mean of a random variable defined in terms
+	of convex or concave function of another random variable.</P>
+</UL>
+
+<P>(Data compression)</P>
+
+<UL>
+	<LI>construct a
+	<I>d</I>-ary Huffman code for a random variable.</P>
+	<LI>use Kraft's
+	inequality to check whether a prefix-free code can be constructed to
+	fit certain codeword lengths;</P>
+	<LI>bound the
+	possible rate of lossless compression of output from a given source
+	using Shannon's source coding theorem;</P>
+	<LI>define a
+	typical set and reason about its size, probability, and elements;</P>
+	<LI>compute the
+	Shannon-Fano-Elias codeword for a sample from a stochastic process.</P>
+	<li><b>compute the entropy rate of a Markov process.</b></li>
+</UL>
+
+<P>(Noisy-channel coding)</P>
+<UL>
+	<LI>construct a
+	probability model of a communication channel given a verbal
+	description;</P>
+	<LI>compute the
+	channel capacity of a channel;</P>
+	<LI>use Shannon's
+	channel coding theorem to bound the achievable rate of reliable
+	communication over a channel;</P>
+	<LI>use Bayes'
+	rule to decode corrupted messages sent using an error-correcting
+	code;</P>
+	<LI>evaluate the
+	rate and reliability of such codes;</P>
+	<LI>define the
+	jointly typical sets of a source and channel, and use such sets to
+	decode outputs from the channel;</P>
+	<LI>draw the
+	confusability graph of a given channel, and describe the channel
+	depicted by a given confusability graph;</P>
+	<LI>compute the
+	independence number and the zero-error capacity of a confusability
+	graph;</P>
+</UL>
+
+<h2>Course website</h2>
+Updated information about the course can be found on <a
+    href="http://homepages.cwi.nl/~schaffne/courses/inftheory/2015/">http://homepages.cwi.nl/~schaffne/courses/inftheory/2015/</a>
+
+<h2>Study Material</h2>
+The material will be presented in black-boards lectures. The following are good references:
+<ul>
+    <li>[CF] Ronald Cramer, Serge Fehr: <a href="notes/CramerFehr.pdf">The
+            Mathematical Theory of Information, and Applications</a>, lecture notes, Version 2.0
+    </li>
+    <li>[CT] Thomas M. Cover, Joy A. Thomas. <a target="blank"
+                                                href="http://onlinelibrary.wiley.com/book/10.1002/0471200611">Elements
+            of information theory</a>, 2nd Edition. New York: Wiley-Interscience, 2006. ISBN 0-471-24195-4.
+    <li>[MacKay] David J. C. MacKay. <a target="blank" href="http://www.inference.phy.cam.ac.uk/mackay/itila/book.html">Information
+            Theory, Inference, and Learning Algorithms</a>. Cambridge: Cambridge University Press, 2003. ISBN
+        0-521-64298-1
+</ul>
+
+
+<h2>Lectures and Exercise sessions (2 x 45min each)</h2>
+please check <a target="_blank" href="https://datanose.nl/#course[37147]">Datanose</a> for the
+definite times and locations.<br>
+
+<!-- <a name="location"></a>
+<b>Lectures (Hoorcollege)</b><br>
+Times: Tuesdays, 11-13, location: Science Park G0.05<br>
+Thursdays, 11-13, location: check <a
+href="https://datanose.nl/#course[22718]">Datanose</a><br>
+starting 4 February 2013<br>
+<br>
+
+<b>Exercises (Werkcollege)</b><br>
+Time: Fridays 9-11, location: check <a
+href="https://datanose.nl/#course[22718]">Datanose</a><br>
+first exercises: 7 February 2013<br>
+<br> -->
+
+
+<h2>Homework, exam, and grading</h2>
+
+This is a 6 ECTS course, which comes to roughly 20 hours of work per
+week.
+
+<p> There will be homework exercises every week
+    to be handed in one week later. The answers should be in English. Feel free to use LaTeX, here is a <a
+        href="HW-template.tex">template</a> to get you started, but readable handwritten solutions
+    are fine, too. Cooperation while solving the exercises is allowed and
+    encouraged, but everyone has to hand in their own solution set in
+    their own words. <a name="exercises"></a>
+
+<p><a name="exam"></a>
+
+    There will be a final written exam.
+<!--    on Friday, March 28, 2014, from 9:00-12:00 in SP, G2.02</b>-->
+    The exam is open-book, meaning that you can bring the study material [CF], [CT],
+    [MacKay] mentioned above as well as any notes you made, but no electronic devices are allowed.
+		Here is the written <a href="exam2014.pdf">exam from Spring 2014</a>.
+
+<!--    <b>The final exam will consist of student presentations-->
+<!--    about slightly more advanced topics connected to the course. The detailed-->
+<!--     procedure and list of topics can be found <a href="exam.php">here</a>.</b>-->
+
+<p> The final grade for the course consists by 1/2 of the average homework grade (ignoring the worst grade) and 1/2 of
+    the grade obtained at the final exam.
+
+<h2 id="schedule">Course schedule Fall 2015</h2>
+    
+    The following table provides an overview of the course contents as currently planned:
+
+   <p>
+
+<table id="schedule">
+
+<!--		<TABLE BORDER="1px solid black" WIDTH=510 BORDER=0 CELLPADDING=6 CELLSPACING=0>-->
+<!---->
+<!--	<COL WIDTH=10>-->
+<!--	<COL WIDTH=130>-->
+<!--	<COL WIDTH=550>-->
+<!--	<COL WIDTH=45>-->
+<!--	<COL WIDTH=45>-->
+<!--	<COL WIDTH=45>-->
+	<thead>
+		<TR>
+		<TH WIDTH=10></TH>
+		<TH WIDTH=130>
+			<P ALIGN=CENTER>Day</P>
+		</TH>
+		<TH WIDTH=450>
+			<P ALIGN=CENTER>Contents</P>
+		</TH>
+		<TH WIDTH=45>
+			<P ALIGN=CENTER>[CF]</P>
+		</TH>
+		<TH WIDTH=45>
+			<P ALIGN=CENTER>[CT]</P>
+		</TH>
+		<TH WIDTH=45>
+			<P ALIGN=CENTER>[MacKay]</P>
+		</TH>
+			<TH WIDTH=45>
+				<P ALIGN=CENTER>Exercises</P>
+			</TH>
+	</TR>
+		</thead>
+	<TR BGCOLOR="#cfe2f3">
+		<TD ROWSPAN=2 WIDTH=10>
+			<P ALIGN=CENTER>1</P>
+		</TD>
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Wed 28 Oct</P>
+		</TD>
+		<TD WIDTH=250>
+			<P ALIGN=left>Introduction, Probability Theory, Entropy</P>
+			<p><a href="InfTheory_L1.pdf">Slides #1</a></p>
+			<p>
+			    <a href="blackboard/IT15_L1_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L1_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L1_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L1_B4.JPG">Photo 4</a>
+			</p>
+
+		</TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>2.1</P>
+		</TD>
+		<TD WIDTH=45></TD>
+		<TD WIDTH=45></TD>
+		<TD><a href="IT-2015-Ex1.pdf">exercise sheet #1</a></TD>
+	</TR>
+	<TR BGCOLOR="#cfe2f3">
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Fri 30 Oct</P>
+		</TD>
+		<TD WIDTH=250>
+			<p><b>Preparation Homework: Understand Section 2.2 of [CF], solve Exercise 9 of Sheet #1</b></p>
+			<P>Jensen's inequality, properties of the
+			entropy, mutual information and dependence</P>
+			<p><a href="InfTheory_L2.pdf">Slides #2</a></p>
+			<p><a href="blackboard/IT15_L2_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L2_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L2_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L2_B4.JPG">Photo 4</a> &nbsp;
+				<a href="blackboard/IT15_L2_B5.JPG">Photo 5</a> &nbsp;
+				<a href="blackboard/IT15_L2_B6.JPG">Photo 6</a> &nbsp;
+				<a href="blackboard/IT15_L2_B7.JPG">Photo 7</a> &nbsp;
+				<a href="blackboard/IT15_L2_B8.JPG">Photo 8</a>; 
+			</p>
+			<p>
+			    <a href="blackboard/IT15_Werk1_Ex1-Bayes.jpg">Ex. 1, Bayes' rule</a> &nbsp
+			    <a href="blackboard/IT15_Werk1_Ex1-Joint.jpg">Ex. 1, joint probabilities</a> &nbsp
+			    <a href="blackboard/IT15_Werk1_Ex3.jpg">Ex. 3</a>
+			</p>
+		</TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>3.1&ndash;3.3</P>
+		</TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>2.1, 2.2, 2.6</P>
+		</TD>
+		<TD WIDTH=45></TD>
+		<td></td>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 WIDTH=10>
+			<P ALIGN=CENTER>2</P>
+		</TD>
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Wed 4 Nov</P>
+		</TD>
+		<TD WIDTH=250>
+			<p><b>Preparation Homework: Figure out how to construct a Huffman code</b></p>
+			<P>Data Compression: symbol codes, Kraft's inequality, source-coding theorem (symbol-code version), Huffman codes</P>
+            <p><a href="InfTheory_L3.pdf">Slides #3</a></p>
+            <p>
+                <a target="_blank" href="https://docs.google.com/spreadsheet/ccc?key=0Am3l5NEdfBL3dGYyMjBvSUltYVExQjlZRkZGcThOS3c&usp=sharing">Entropy of Alice in Wonderland</a>&nbsp;
+                <a target="_blank" href="http://en.webhex.net/">Hex Editor with statistics</a>&nbsp;
+            </p>
+			<p><a href="blackboard/IT15_L3_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L3_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L3_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L3_B4.JPG">Photo 4</a> &nbsp;
+			</p>
+        </TD>
+		<TD WIDTH=45>
+            <P ALIGN=CENTER>5.1, 5.2</P>
+		</TD>
+		<TD WIDTH=45><P ALIGN=CENTER>5</P></TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>5, <A HREF="https://www.google.com/url?q=http://videolectures.net/mackay_course_04/&amp;sa=D&amp;usg=AFQjCNFm-4ec1Altdt7jM8uEILDe9lM57g">L4</A></P>
+		</TD>
+		<TD><a href="IT-2015-Ex2.pdf">exercise sheet #2</a></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Fri 6 Nov</P>
+		</TD>
+		<TD WIDTH=250>
+			<P>Asymptotic Equipartition Theorem (AEP), the source coding theorem (asymptotic version)</P>
+            <p><a href="InfTheory_L4.pdf">Slides #4</a></p>
+			<p><a href="blackboard/IT15_L4_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L4_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L4_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L4_B4.JPG">Photo 4</a> &nbsp;
+				<a href="blackboard/IT15_L4_B5.JPG">Photo 5</a> &nbsp;
+				<a href="blackboard/IT15_L4_B6.JPG">Photo 6</a>
+			</p>
+			<p>
+			    <a href="blackboard/AEP.pdf">Mathias's slides about the AEP</a>
+			</p>
+		</TD>
+		<TD WIDTH=45></TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>3</P>
+		</TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>4.4</P>
+		</TD>
+		<td></td>
+	</TR>
+	<TR BGCOLOR="#cfe2f3">
+		<TD ROWSPAN=2 WIDTH=10>
+			<P ALIGN=CENTER>3</P>
+		</TD>
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Wed 11 Nov</P>
+		</TD>
+		<TD WIDTH=250 BGCOLOR="#cfe2f3">
+			<p><b>Preparation Homework: Play the <a href="http://www.20q.net/" target="_blank">online game of 20 questions</a></b></p>
+			<P>d-ary Huffman codes, 20 questions, optimality and disadvantages of Huffman codes, codes as probability distributions, arithmetic codes</P>
+			<p><a href="InfTheory_L5.pdf">Slides #5</a> &nbsp; Mathias's slides on <a href="arithmetic_coding.pdf">arithmetic coding</a></p>
+			<p><a href="http://www.inference.phy.cam.ac.uk/dasher/" target="_blank">Dasher</a>
+			<p><a href="blackboard/IT15_L5_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L5_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L5_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L5_B4.JPG">Photo 4</a> &nbsp;
+				<a href="blackboard/IT15_L5_B5.JPG">Photo 5</a> &nbsp;
+				<a href="blackboard/IT15_L5_B6.JPG">Photo 6</a> &nbsp;
+				<a href="blackboard/IT15_L5_B7.JPG">Photo 7</a> &nbsp;
+				<a href="blackboard/IT15_L5_B8.JPG">Photo 8</a>
+			</p>
+		</TD>
+		<TD WIDTH=45></TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>5.9, 13.3</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#cfe2f3">
+			<P ALIGN=CENTER>6, <A HREF="https://www.google.com/url?q=http://videolectures.net/mackay_course_05/&amp;sa=D&amp;usg=AFQjCNFcOkkPYGJEV6qyMsCf9L4RZlYtKw">L5</A></P>
+		</TD>
+		<td><a href="IT-2015-Ex3.pdf">exercise sheet #3</a></td>
+	</TR>
+	<TR BGCOLOR="#cfe2f3">
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Fri 13 Nov</P>
+		</TD>
+		<TD WIDTH=250 BGCOLOR="#cfe2f3">
+			<P>Stochastic Processes, Entropy rates</P>
+			<p>
+				<a href="blackboard/Entropy rates and stochastic processes.pdf">Slides #6</a> &nbsp;
+				<a href="blackboard/Random Processes and Ergodicity.pdf">Mathias' notes on Random Processes and Ergodicity</a> &nbsp;
+			</p>
+			<p><a href="blackboard/IT15_L6_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L6_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L6_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L6_B4.JPG">Photo 4</a> &nbsp;
+				<a href="blackboard/IT15_L6_B5.JPG">Photo 5</a> &nbsp;
+				<a href="blackboard/IT15_L6_B6.JPG">Photo 6</a> &nbsp;
+				<a href="blackboard/IT15_L6_B7.JPG">Photo 7</a> &nbsp;
+				<a href="blackboard/IT15_L6_B8.JPG">Photo 8</a> &nbsp;
+				<a href="blackboard/IT15_L6_B9.JPG">Photo 9</a> &nbsp;
+			</p>
+		</TD>
+		<TD WIDTH=45></TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>4</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#cfe2f3"></TD>
+		<td></td>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 WIDTH=10>
+			<P ALIGN=CENTER>4</P>
+		</TD>
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Wed 18 Nov</P>
+		</TD>
+		<TD WIDTH=250>
+			<P>Ergodicity</P>
+			<p>
+				<a href="blackboard/Entropy rates and stochastic processes 2.pdf">Slides</a> &nbsp;
+				<a href="blackboard/Ergodicity - Definitions and Examples.pdf">Definitions, Facts, and Examples about Random Processes</a> &nbsp;
+			</p>
+			<p><a href="blackboard/IT15_L7_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L7_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L7_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L7_B4.JPG">Photo 4</a> &nbsp;
+				<a href="blackboard/IT15_L7_B5.JPG">Photo 5</a> &nbsp;
+				<a href="blackboard/IT15_L7_B6.JPG">Photo 6</a> &nbsp;
+				<a href="blackboard/IT15_L7_B7.JPG">Photo 7</a> &nbsp;
+				<a href="blackboard/IT15_L7_B8.JPG">Photo 8</a>
+			</p>
+		</TD>
+		<TD WIDTH=45>
+		</TD>
+		<TD WIDTH=45>
+		</TD>
+		<TD WIDTH=45>
+		</TD>
+		<TD><a href="IT-2015-Ex4.pdf">exercise sheet #4 (updated)</a></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Fri 21 Nov</P>
+		</TD>
+		<TD WIDTH=250>
+			<P>Entropy diagrams, Markov chains, data-processing inequality, perfectly secure encryption</P>
+			<p>
+			<p><a href="InfTheory_L8.pdf">Slides #8</a></p>
+			<p><a target="_blank" href="http://b.cryptosmith.com/2008/05/31/stream-reuse/">Insecurity of Key Reuse in OTP</a></p>
+			<p><a href="blackboard/IT15_L8_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L8_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L8_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L8_B4.JPG">Photo 4</a> &nbsp;
+				<a href="blackboard/IT15_L8_B5.JPG">Photo 5</a> &nbsp;
+				<a href="blackboard/IT15_L8_B6.JPG">Photo 6</a> &nbsp;
+				<a href="blackboard/IT15_L8_B7.JPG">Photo 7</a> &nbsp;
+				<a href="blackboard/IT15_L8_B8.JPG">Photo 8</a> &nbsp;
+				<a href="blackboard/IT15_L8_B9.JPG">Photo 9</a> &nbsp;
+				<a href="blackboard/IT15_L8_B10.JPG">Photo 10</a> &nbsp;
+				<a href="blackboard/IT15_L8_B11.JPG">Photo 11</a> &nbsp;
+
+				<a href="blackboard/Markov chain theory.jpg">Entropy rate of a Markov chain</a>, with
+				<a href="blackboard/Markov chain example.jpg">an example</a>;
+				The <a href="blackboard/Definition of Ergodicity.jpg">definition of ergodicity</a>;
+				<a href="blackboard/Sheet4, Ex 5, hint.jpg">a hint for exercise 5</a>.
+
+			</p>		</TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>3.3&ndash;3.4, 4</P>
+		</TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>2.5, 2.8, 7.11</P>
+		</TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>8</P>
+		</TD>
+		<td></td>
+	</TR>
+	<TR BGCOLOR="#cfe2f3">
+		<TD ROWSPAN=2 WIDTH=10>
+			<P ALIGN=CENTER>5</P>
+		</TD>
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Wed 25 Nov</P>
+		</TD>
+		<TD WIDTH=250 BGCOLOR="#cfe2f3">
+			<P>Noisy channels, error-correcting codes, Hamming code</P>
+			<p><a href="InfTheory_L9.pdf">Slides #9</a></p>
+			<p><a href="blackboard/IT15_L9_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L9_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L9_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L9_B4.JPG">Photo 4</a> &nbsp;
+				<a href="blackboard/IT15_L9_B5.JPG">Photo 5</a> &nbsp;
+				<a href="blackboard/IT15_L9_B6.JPG">Photo 6</a> &nbsp;
+				<a href="blackboard/IT15_L9_B7.JPG">Photo 7</a> &nbsp;
+				<a href="blackboard/IT15_L9_B8.JPG">Photo 8</a>
+			</p>
+		</TD>
+		<TD WIDTH=45></TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>7.11</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#cfe2f3">
+			<p ALIGN=CENTER>1, <A target="_blank" HREF="http://videolectures.net/mackay_course_01/">L1</A></p>
+		</TD>
+		<TD><a href="IT-2015-Ex5.pdf">exercise sheet #5</a></TD>
+	</TR>
+	<TR BGCOLOR="#cfe2f3">
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Fri 27 Nov</P>
+		</TD>
+		<TD WIDTH=250 BGCOLOR="#cfe2f3">
+			<p><b>Preparation Homework:</b> look up and remember the definitions of the following concepts: graph, vertex,
+					edge, <a href="https://en.wikipedia.org/wiki/Independent_set_%28graph_theory%29" target="_blank">
+					independent set</a>, independence number. What is the independence number of <a href="https://en.wikipedia.org/wiki/Frucht_graph" target="_blank"><img src="graph.png" width="60"></a>?</p>
+			<P>Zero-error channel coding, Shannon capacity of a graph</P>
+			<p><a href="InfTheory_L10.pdf">Slides #10</a></p>
+			<p><a href="blackboard/IT15_L10_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L10_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L10_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L10_B4.JPG">Photo 4</a> &nbsp;
+			</p>
+			<p>Exercise class:
+			
+			<a href="blackboard/Fri 27 Nov Divergence, Bernoulli.jpeg">Comments on Ex. 1</a>;
+
+			<a href="blackboard/Fri 27 Nov Parity check graphs.jpeg">Parity check graphs</a> and
+			<a href="blackboard/Fri%2027%20Nov%20Edit%20cost.jpeg">edit costs</a>;
+			
+			<a href="blackboard/Fri%2027%20Nov%20Error%20Detection.jpeg">Hamming's error-detecting code</a>,
+			<a href="blackboard/Fri 27 Nov Error-Detection Cube.jpeg">as a cube</a>; 
+			<a href="blackboard/Fri 27 Nov Noise vectors.jpeg">with noise vector examples</a>; 
+			
+			<a href="blackboard/Fri 27 Nov Channel models.jpeg">Stirling's approximation, a graphical channel specification</a>, and 
+			<a href="blackboard/Fri 27 Nov confusability.jpeg">the relation between graphs and channels</a>
+
+		</TD>
+		<TD WIDTH=45></TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>7.8</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#cfe2f3"></TD>
+		<td></td>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 WIDTH=10>
+			<P ALIGN=CENTER>6</P>
+		</TD>
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Wed 2 Dec</P>
+		</TD>
+		<TD WIDTH=250>
+			<P>Fano's inequality, Channel capacity, Shannon's	channel coding theorem: intuition and proof of converse</P>
+			<p><a href="InfTheory_L10.pdf">Slides #10</a></p>
+			<p><a href="blackboard/IT15_L11_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L11_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L11_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L11_B4.JPG">Photo 4</a> &nbsp;
+				<a href="blackboard/IT15_L11_B5.JPG">Photo 5</a> &nbsp;
+			</p>
+		</TD>
+		<TD WIDTH=45></TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>2.10, 7.9&ndash;7.10</P>
+		</TD>
+		<TD WIDTH=45></TD>
+		<TD><a href="IT-2015-Ex6.pdf">exercise sheet #6</a></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Fri 4 Dec</P>
+		</TD>
+		<TD WIDTH=250>
+			<P>Shannon's channel coding theorem</P>
+			<p><a href="InfTheory_L12.pdf">Slides #12</a></p>
+			<p><a href="blackboard/IT15_L12_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L12_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L12_B3.JPG">Photo 3</a> &nbsp;
+				<a href="blackboard/IT15_L12_B4.JPG">Photo 4</a> &nbsp;
+				<a href="blackboard/IT15_L12_B5.JPG">Photo 5</a>.
+			</p>
+			<p><a href="blackboard/Fri Dec 4 example 1.jpg">First hint for exercise 2</a>; &nbsp;
+			   <a href="blackboard/Fri Dec 4 example 2.jpg">second</a>;
+			   <a href="blackboard/Fri Dec 4 channel.jpg">the channel from exercise 6</a>.
+			</p>
+			<p>
+			   <a href="blackboard/Comment_on_Lemma_7.9.2.pdf">A comment on Lemma 7.9.2</a>.
+			</p>
+		</TD>
+		<TD WIDTH=45></TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>7.1&ndash;7.7</P>
+		</TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>9, 10</P>
+		</TD>
+		<td></td>
+	</TR>
+	<TR BGCOLOR="#cfe2f3">
+		<TD ROWSPAN=2 WIDTH=10>
+			<P ALIGN=CENTER>7</P>
+		</TD>
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Wed 9 Dec</P>
+		</TD>
+		<TD WIDTH=250 BGCOLOR="#cfe2f3">
+			<P>Source-channel separation, Quantum Information Theory</P>
+			<p><a href="https://www.youtube.com/watch?v=mN--nV61gDo" target="_blank">The cocktail-party effect</a></p>
+			<p><a href="InfTheory_L13.pdf">Slides #13</a></p>
+			<p><a href="blackboard/IT15_L13_B1.JPG">Blackboard Photo 1</a> &nbsp;
+				<a href="blackboard/IT15_L13_B2.JPG">Photo 2</a> &nbsp;
+				<a href="blackboard/IT15_L13_B3.JPG">Photo 3</a> &nbsp;
+			</p>
+			<p></p>
+			<p><a href="http://homepages.cwi.nl/~rdewolf/qcnotes.pdf" target="_blank">Ronald de Wolf's lecture notes on Quantum computing</a><br>
+			<a href="http://arxiv.org/abs/1106.1445" target="_blank">Mark Wilde's book "From Classical to Quantum Shannon Theory"</a>
+			</p>
+		</TD>
+		<TD WIDTH=45></TD>
+		<TD WIDTH=45>
+			<P ALIGN=CENTER>7.13</P>
+		</TD>
+		<TD WIDTH=45 BGCOLOR="#cfe2f3"></TD>
+		<TD><a href="IT-2015-Ex7-modified-again.pdf">exercise sheet #7 (slightly updated)</a></TD>
+	</TR>
+	<TR BGCOLOR="#cfe2f3">
+		<TD WIDTH=115>
+			<P ALIGN=CENTER>Fri 11 Dec</P>
+		</TD>
+		<TD WIDTH=250 BGCOLOR="#cfe2f3">
+			<P>Quantum Cryptography</P>
+			<p><a href="http://homepages.cwi.nl/~fehr/QCv2.pdf" target="_blank">Serge Fehr's lecture notes on Quantum Cryptography</a></p>
+			<p>Photos from the exercise class:
+			   <a href="blackboard/Fri 11 Dec derivative of h.jpeg">The derivative of the binary entropy equals the binary logit function</a>.
+			   <a href="blackboard/Fri 11 Dec matrix.jpeg">Matrix notation for channels</a>;
+			   an example channel: 
+			   <a href="blackboard/Fri 11 Dec channel example 1.jpeg">picture 1</a>,
+			   <a href="blackboard/Fri 11 Dec channel example 2.jpeg">picture 2</a>, and
+			   <a href="blackboard/Fri 11 Dec channel example 3.jpeg">picture 3</a>.
+			   <a href="blackboard/Fri 11 Dec strong products.jpeg">Strong products</a>, and 
+			   <a href="blackboard/Fri 11 Dec a section of the typewrite torus.jpeg">a part of the noisy 5-typewriter's confusability graph</a>.
+			   Symmetry and concavity:
+			   <a href="blackboard/Fri 11 Dec concavity 1.jpeg">explanation</a>,
+			   <a href="blackboard/Fri 11 Dec concavity 2.jpeg">example</a>, and
+			   <a href="blackboard/Fri 11 Dec concavity 3.jpeg">illustration</a>.
+			</p>
+		</TD>
+		<TD WIDTH=45></TD>
+		<TD WIDTH=45></TD>
+		<TD WIDTH=45 BGCOLOR="#cfe2f3"></TD>
+		<td></td>
+	</TR>
+</TABLE>
+
+
+<a name="lifeafter"></a>
+
+<h2>Life after "Information Theory"</h2>
+If you got hooked on the world of entropies, you have several
+options after the course to pursue the topics of information theory and cryptography:
+<ul>
+    <li>Talk to Christian about the possibilities of doing a semester project
+        or master project in information theory or cryptography. He can also hook you up with other
+        people at the <a href="http://www.illc.uva.nl/People/">ILLC</a>, at <a href="http://www.cwi.nl">CWI</a> or in the rest of the world, working on different
+        aspects of information theory.
+    </li>
+    <li>Follow <a href="http://homepages.cwi.nl/~rdewolf">Ronald de Wolf</a>'s course about <a
+            href="http://homepages.cwi.nl/~rdewolf">combinatorics with computer science applications</a> at the
+        university of Amsterdam, starting Spring 2016.
+    </li>
+    <li>Follow <a href="https://staff.fnwi.uva.nl/l.torenvliet/">Leen Torenvliet</a>'s course about <a
+            href="http://studiegids.uva.nl/xmlpages/page/2015-2016-en/search-course/course/15297">Kolmogorov complexity</a> at the
+        university of Amsterdam, starting Spring 2016.
+    </li>
+<!--    <li>Follow <a href="http://www.mastermath.nl/courses/Spring_2015/Cryptology/">this mastermath course</a>-->
+<!--        about crypology by <a href="http://www.marc-stevens.nl">Marc Stevens</a> and-->
+<!--        <a href="http://www.hyperelliptic.org/tanja/">Tanja Lange</a>, starting in Spring 2015.</li>-->
+<!--    <li>Follow <a href="https://www.cwi.nl/people/552">Harry Buhrmans</a>'s course about <a-->
+<!--            href="https://datanose.nl/#course[14942]">computational complexity</a> at the-->
+<!--        university of Amsterdam, starting Fall 2015.-->
+<!--    </li>-->
+    <li>Follow various online classes such as Raymond W. Yeung's <a href="https://class.coursera.org/informationtheory-002">
+            Information Theory</a> course,
+        Dan Boneh's
+        <a href="https://www.coursera.org/course/crypto">
+            crypto</a>, <a href="https://www.coursera.org/course/crypto2">crypto II</a>,
+        <a href="https://www.coursera.org/course/cryptography">Jon Katz's crypto class</a> or <a
+            href="https://www.coursera.org/course/qcomp">Umesh Vazirani's course
+            about quantum computing</a>.
+    </li>
+</ul>
+
+
+<div id="footer">
+    <p>Last update: 2015-10-28 12:13:36 +0100 &nbsp; &nbsp;
+        <span class="disclaimer"><a href="http://www.cwi.nl/disclaimer.html">CWI DISCLAIMER</a></span></p>
+
+
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <!-- Start of StatCounter Code -->
+    <script type="text/javascript" language="javascript">
+        <!--
+        var sc_project = 1639480;
+        var sc_invisible = 1;
+        var sc_partition = 15;
+        var sc_security = "19c07acf";
+        //-->
+    </script>
+
+    <script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+    <noscript><a href="http://statcounter.com/" target="_blank"><img
+                src="http://c16.statcounter.com/counter.php?sc_project=1639480&amp;java=0&amp;security=19c07acf&amp;invisible=1"
+                alt="website page counter" border="0"></a></noscript>
+    <!-- End of StatCounter Code -->
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-23222525-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+</div>
+
+</body>
+</html>
